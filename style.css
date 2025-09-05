@@ -1,0 +1,48 @@
+body {
+	background-color: black;
+	color: #f2a400;
+	font-family: 'Times New Roman', Times, serif;
+	image-rendering: pixelated;
+}
+
+#screenCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 95vh;
+}
+
+#main {
+	text-align: center;
+  	font-size: 20px;
+}
+
+.next {
+  	font-size: 25px;
+	font-weight: bold;
+	margin-top: 1em;
+	font-family: 'Courier New', Courier, monospace;
+	cursor: pointer;
+}
+
+.page {
+	display: none;
+	transition: opacity 1s .5s;
+
+	@starting-style {
+		opacity: 0;
+	}
+	
+	&:first-child {
+		display: block;
+	}
+}
+
+.dirk {
+	transition: translate 1s .5s;
+
+	@starting-style {
+		translate: 0 -25px;
+	}
+}
