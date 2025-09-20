@@ -39,15 +39,22 @@ const loadPage = async (epNumber) => {
 		return
 	}
 
-	let pageLink = `/?episode=${epNumber}&page=${parseInt(pageNumber) + 1}`
-
-
+	let pageLink = `/deltritus/?episode=${epNumber}&page=${parseInt(pageNumber) + 1}`
 	let page = pageList[pageNumber - 1]
+
+	let topImage = `/deltritus/assets/${page.topImage}`
+	let mainImage = `/deltritus/assets/${page.mainImage}`
+
+	if (window.location.href.includes("flaringk")) {
+		pageLink = "/slicesite/" + pageLink
+		topImage = "/slicesite/" + topImage
+		mainImage = "/slicesite/" + mainImage
+	}
 
 	episode.innerHTML = `
 	<div class="page pageText">
-		${page.topImage ? `<img src="slicesite/assets/${page.topImage}">` : ""}
-		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="slicesite/assets/${page.mainImage}">
+		${page.topImage ? `<img src="${topImage}">` : ""}
+		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${mainImage}">
 		<div class="dirk">${page.dirkText}</div>
 		<a class="link" href="${pageLink}">==></a>
 	</div>
@@ -58,8 +65,13 @@ const loadPage = async (epNumber) => {
 
 const clickLink = (event, link) => {
 	if (event) event.preventDefault()
-	link = "/slicesite/" + link
+
+	if (window.location.href.includes("flaringk")) {
+		link = link.replace("/deltritus/", "/slicesite/deltritus/")
+	}
+
 	history.pushState(null, '', link)
+
 	loadPage(getUrlParam("episode"))
 }
 
