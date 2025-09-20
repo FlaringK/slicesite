@@ -1,5 +1,78 @@
-document.querySelectorAll(".next").forEach(el => {
-	el.onclick = () => {
-		el.parentElement.remove()
+// Get Json
+let scriptJSON
+fetch("./script.json").then(response => response.json()).then(json => { 
+	scriptJSON = json
+	loadPage(getUrlParam("episode")) 
+});
+
+// Load Episode
+const getUrlParam = param => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const p = urlParams.get(param)
+  return p ? p : "home"
+}
+
+const main = document.getElementById("main")
+const episode = document.getElementById("episode")
+
+const loadPage = async (epNumber) => {
+	episode.innerHTML = ""
+
+	// If it's home, show home div and return
+	if (epNumber == "home") {
+		main.className = ""
+		episode.className = "inactive"
+		episode.innerHTML = ""
+		return
+	} 
+	
+	// Else it's an episode
+	main.className = "inactive"
+	episode.className = ""
+
+	episodeHtml = ""
+	let pageNumber = /^\d+$/.test(getUrlParam("page")) ? getUrlParam("page") : 1
+	let pageList = /^\d+$/.test(epNumber) ? scriptJSON.episodes[epNumber - 1] : scriptJSON[epNumber]
+
+	if (!pageList[pageNumber - 1]) {
+		clickLink(null, "/")
+		return
 	}
+
+	let pageLink = `/?episode=${epNumber}&page=${parseInt(pageNumber) + 1}`
+
+
+	let page = pageList[pageNumber - 1]
+
+	episode.innerHTML = `
+	<div class="page pageText">
+		${page.topImage ? `<img src="./assets/${page.topImage}">` : ""}
+		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="./assets/${page.mainImage}">
+		<div class="dirk">${page.dirkText}</div>
+		<a class="link" href="${pageLink}">==></a>
+	</div>
+	`
+
+	episode.querySelector(".link").addEventListener("click", evt => clickLink(evt, episode.querySelector(".link").href))
+}
+
+const clickLink = (event, link) => {
+  if (event) event.preventDefault()
+  history.pushState(null, '', link)
+  loadPage(getUrlParam("episode"))
+}
+
+// Clickable episodes
+document.querySelectorAll(".episodeLink").forEach(a => {
+	a.addEventListener("click", evt => clickLink(evt, a.href))
 })
+
+// Set CSS values
+document.querySelectorAll(".episodeLink").forEach((el, i) => {
+	el.style.setProperty("--position", i + "")
+})
+
+// Reload on back button
+window.addEventListener("popstate", function () {
+	location.reload();
+});
