@@ -57,9 +57,10 @@ const loadPage = async (epNumber) => {
 }
 
 const clickLink = (event, link) => {
-  if (event) event.preventDefault()
-  history.pushState(null, '', link)
-  loadPage(getUrlParam("episode"))
+	if (event) event.preventDefault()
+	link = "/slicesite/" + link
+	history.pushState(null, '', link)
+	loadPage(getUrlParam("episode"))
 }
 
 // Clickable episodes
