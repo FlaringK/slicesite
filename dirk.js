@@ -46,8 +46,8 @@ const loadPage = async (epNumber) => {
 
 	episode.innerHTML = `
 	<div class="page pageText">
-		${page.topImage ? `<img src="./assets/${page.topImage}">` : ""}
-		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="./assets/${page.mainImage}">
+		${page.topImage ? `<img src="slicesite//assets/${page.topImage}">` : ""}
+		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="slicesite/assets/${page.mainImage}">
 		<div class="dirk">${page.dirkText}</div>
 		<a class="link" href="${pageLink}">==></a>
 	</div>
