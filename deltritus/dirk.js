@@ -35,7 +35,11 @@ const loadPage = async (epNumber) => {
 	let pageList = /^\d+$/.test(epNumber) ? scriptJSON.episodes[epNumber - 1] : scriptJSON[epNumber]
 
 	if (!pageList[pageNumber - 1]) {
-		clickLink(null, "/")
+		if (window.location.href.includes("flaringk")) {
+			clickLink(null, "/slicesite/deltritus/")
+			return
+		}
+		clickLink(null, "/deltritus/")
 		return
 	}
 
@@ -46,7 +50,6 @@ const loadPage = async (epNumber) => {
 	let mainImage = `/deltritus/assets/${page.mainImage}`
 
 	if (window.location.href.includes("flaringk")) {
-		pageLink = "/slicesite" + pageLink
 		topImage = "/slicesite" + topImage
 		mainImage = "/slicesite" + mainImage
 	}
