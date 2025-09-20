@@ -46,9 +46,9 @@ const loadPage = async (epNumber) => {
 	let mainImage = `/deltritus/assets/${page.mainImage}`
 
 	if (window.location.href.includes("flaringk")) {
-		pageLink = "/slicesite/" + pageLink
-		topImage = "/slicesite/" + topImage
-		mainImage = "/slicesite/" + mainImage
+		pageLink = "/slicesite" + pageLink
+		topImage = "/slicesite" + topImage
+		mainImage = "/slicesite" + mainImage
 	}
 
 	episode.innerHTML = `
