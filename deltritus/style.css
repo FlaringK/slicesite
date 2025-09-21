@@ -48,6 +48,11 @@ body {
 	}
 }
 
+.mainImage {
+	max-width: 99vw;
+	display: block;
+}
+
 .inactive + .page {
 	display: block;
 }

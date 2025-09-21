@@ -59,7 +59,7 @@ const loadPage = async (epNumber) => {
 	<div class="page pageText">
 		${page.topImage ? `<img src="${topImage}">` : ""}
 		${page.topText ? `<div class="topText ${page.revealText ? "reveal" : ""}">${page.topText}</div>` : ""}
-		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${mainImage}">
+		<img class="mainImage ${page.mainImage.includes("epimain") ? `teaser` : ""}" src="${mainImage}">
 		<div class="dirk">${page.dirkText}</div>
 		<a class="link back" href="${backLink}"><==</a>
 		<a class="link next" href="${pageLink}">==></a>
