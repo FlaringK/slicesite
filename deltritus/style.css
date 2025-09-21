@@ -120,6 +120,7 @@ img.teaser {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 5em;
+	flex-wrap: wrap;
 }
 
 #qna a {
