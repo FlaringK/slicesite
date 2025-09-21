@@ -44,6 +44,7 @@ const loadPage = async (epNumber) => {
 	}
 
 	let pageLink = `/deltritus/?episode=${epNumber}&page=${parseInt(pageNumber) + 1}`
+	let backLink = `/deltritus/?episode=${epNumber}&page=${parseInt(pageNumber) - 1}`
 	let page = pageList[pageNumber - 1]
 
 	let topImage = `/deltritus/assets/${page.topImage}`
@@ -59,11 +60,14 @@ const loadPage = async (epNumber) => {
 		${page.topImage ? `<img src="${topImage}">` : ""}
 		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${mainImage}">
 		<div class="dirk">${page.dirkText}</div>
-		<a class="link" href="${pageLink}">==></a>
+		<a class="link back" href="${backLink}"><==</a>
+		<a class="link next" href="${pageLink}">==></a>
 	</div>
 	`
 
-	episode.querySelector(".link").addEventListener("click", evt => clickLink(evt, episode.querySelector(".link").href))
+	episode.querySelectorAll(".link").forEach(a => {
+		a.addEventListener("click", evt => clickLink(evt, a.href))
+	})
 }
 
 const clickLink = (event, link) => {
@@ -91,4 +95,20 @@ document.querySelectorAll(".episodeLink").forEach((el, i) => {
 // Reload on back button
 window.addEventListener("popstate", function () {
 	location.reload();
+});
+
+// Manage Left and right clicks
+document.addEventListener('keydown', (event) => {
+	switch (event.key) {
+		case "ArrowLeft":
+			if (document.querySelector(".back")) {
+				clickLink(null, document.querySelector(".back").href)
+			}
+			break;
+		case "ArrowRight":
+			if (document.querySelector(".next")) {
+				clickLink(null, document.querySelector(".next").href)
+			}
+			break;
+	}
 });
