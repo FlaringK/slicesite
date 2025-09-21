@@ -51,6 +51,7 @@ body {
 .mainImage {
 	max-width: 99vw;
 	display: block;
+	margin: auto;
 }
 
 .inactive + .page {
