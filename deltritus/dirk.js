@@ -58,12 +58,30 @@ const loadPage = async (epNumber) => {
 	episode.innerHTML = `
 	<div class="page pageText">
 		${page.topImage ? `<img src="${topImage}">` : ""}
+		${page.topText ? `<div class="topText ${page.revealText ? "reveal" : ""}">${page.topText}</div>` : ""}
 		<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${mainImage}">
 		<div class="dirk">${page.dirkText}</div>
 		<a class="link back" href="${backLink}"><==</a>
 		<a class="link next" href="${pageLink}">==></a>
 	</div>
 	`
+
+	// If next page preload image
+	if (pageList[pageNumber]) {
+		let nextPage = pageList[pageNumber]
+		let nextTopImage = `/deltritus/assets/${nextPage.topImage}`
+		let nextMainImage = `/deltritus/assets/${nextPage.mainImage}`
+		if (window.location.href.includes("flaringk")) {
+			nextTopImage = "/slicesite" + nextTopImage
+			nextMainImage = "/slicesite" + nextMainImage
+		}
+		episode.innerHTML += `
+		<div class="hidden">
+			<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${nextMainImage}">
+			<img ${page.mainImage.includes("epimain") ? `class="teaser"` : ""} src="${nextTopImage}">
+		</div>
+		`
+	}
 
 	episode.querySelectorAll(".link").forEach(a => {
 		a.addEventListener("click", evt => clickLink(evt, a.href))

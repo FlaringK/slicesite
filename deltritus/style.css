@@ -70,6 +70,14 @@ img.teaser {
 	margin: 25px auto;
 }
 
+.back::after {
+	content: " "
+}
+
+.hidden {
+	display: none;
+}
+
 /* Hub Style */
 
 .teaserHub {
@@ -103,6 +111,24 @@ img.teaser {
 	}
 }
 
+#qna {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 5em;
+}
+
+#qna a {
+	display: block;
+	text-align: center;
+	margin: 1em auto;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.topText {
+	font-size: 30px;
+}
+
+
 /* NAV */
 
 #nav {
@@ -119,7 +145,7 @@ img.teaser {
 	}
 }
 
-#nav a {
+#nav a, #qna a {
 	color: #f2a400;
 	text-decoration: none;
 	font-weight: bold;
@@ -128,3 +154,4 @@ img.teaser {
 		text-decoration: underline;
 	}
 }
+
