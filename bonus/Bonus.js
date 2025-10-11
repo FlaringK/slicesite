@@ -51,7 +51,6 @@ const loadPage = async (epNumber) => {
 	let pageLink = `/bonus/?episode=${epNumber}&page=${parseInt(pageNumber) + 1}`
 	let backLink = `/bonus/?episode=${epNumber}&page=${parseInt(pageNumber) - 1}`
 	let pageData = pageList[pageNumber - 1]
-
 	
 	// REMOVE THIS ON UPLOAD
 	if (window.location.href.includes("flaringk")) {
@@ -72,6 +71,12 @@ const loadPage = async (epNumber) => {
 	} else {
 		document.getElementById("nextLink").href = "/bonus"
 		document.getElementById("nextLink").innerText = "Episode Complete!"
+
+		
+		// REMOVE THIS ON UPLOAD
+		if (window.location.href.includes("flaringk")) {
+			document.getElementById("nextLink").href = "/slicesite/bonus"
+		}
 	}
 }
 
