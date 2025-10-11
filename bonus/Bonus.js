@@ -84,8 +84,8 @@ const clickLink = (event, link) => {
 	}
 
 	history.pushState(null, '', link)
-
 	loadPage(getUrlParam("episode"))
+	window.scrollTo(0, 0)
 }
 
 episode.querySelectorAll("a").forEach(a => {

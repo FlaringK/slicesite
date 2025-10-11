@@ -121,6 +121,8 @@ body {
 	display: none;
 }
 
+/* === */
+
 .inactive {
   display: none;
 }
@@ -153,4 +155,8 @@ body {
 
 .longimage > * {
   translate: -25%
+}
+
+iframe {
+  pointer-events: none;
 }
