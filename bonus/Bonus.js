@@ -97,7 +97,7 @@ episode.querySelectorAll("a").forEach(a => {
 	a.addEventListener("click", evt => clickLink(evt, a.href))
 	// REMOVE THIS ON UPLOAD
 	if (window.location.href.includes("flaringk")) {
-		a.href = "/slicesite" + a.href
+		a.href = a.href.replace("/bonus", "/slicesite/bonus")
 	}
 })
 
@@ -105,7 +105,7 @@ main.querySelectorAll("a").forEach(a => {
 	a.addEventListener("click", evt => clickLink(evt, a.href))
 	// REMOVE THIS ON UPLOAD
 	if (window.location.href.includes("flaringk")) {
-		a.href = "/slicesite" + a.href
+		a.href = a.href.replace("/bonus", "/slicesite/bonus")
 	}
 })
 
