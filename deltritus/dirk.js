@@ -35,10 +35,13 @@ const loadPage = async (epNumber) => {
 	let pageList = /^\d+$/.test(epNumber) ? scriptJSON.episodes[epNumber - 1] : scriptJSON[epNumber]
 
 	if (!pageList[pageNumber - 1]) {
+		
+		// REMOVE THIS ON UPLOAD
 		if (window.location.href.includes("flaringk")) {
 			clickLink(null, "/slicesite/deltritus/")
 			return
 		}
+		
 		clickLink(null, "/deltritus/")
 		return
 	}
@@ -50,6 +53,7 @@ const loadPage = async (epNumber) => {
 	let topImage = `/deltritus/assets/${page.topImage}`
 	let mainImage = `/deltritus/assets/${page.mainImage}`
 
+	// REMOVE THIS ON UPLOAD
 	if (window.location.href.includes("flaringk")) {
 		topImage = "/slicesite" + topImage
 		mainImage = "/slicesite" + mainImage
@@ -91,6 +95,7 @@ const loadPage = async (epNumber) => {
 const clickLink = (event, link) => {
 	if (event) event.preventDefault()
 
+	// REMOVE THIS ON UPLOAD
 	if (window.location.href.includes("flaringk")) {
 		link = link.replace("/deltritus/", "/slicesite/deltritus/")
 	}

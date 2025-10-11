@@ -1,0 +1,19 @@
+body {
+	background-color: black;
+	color: white;
+}
+
+#main {
+  font-family: Verdana,Arial,Helvetica,sans-serif;
+  font-size: x-large;
+  font-weight: 400;
+  margin: 0 25px 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  min-width: 900px;
+  margin: auto;
+  min-height: 80vh;
+}
