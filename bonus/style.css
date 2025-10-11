@@ -131,6 +131,10 @@ body {
   color: #f2a400
 }
 
+#main .spoiler img {
+  margin-bottom: -4px;
+}
+
 .epiopt {
   display: flex;
   align-items: center;
@@ -159,4 +163,26 @@ body {
 
 iframe {
   pointer-events: none;
+}
+
+/* Themes */
+
+.halloween {
+  background-color: #191714;
+  a { color: #f2a400; }
+  .pageFrame {  background-color: #131313; }
+  .pageContent {
+    background-color: black;
+    color: #E5E5E5;
+  }
+}
+
+.christmas {
+  background-color: #7C808D;
+  a { color: #A1ACD0; }
+  .pageFrame { background-color: #514D5C; } 
+  .pageContent { 
+    background-color: #463B47; 
+    color: #E5E5E5;
+  } 
 }

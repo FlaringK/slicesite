@@ -25,6 +25,7 @@ const loadPage = async (epNumber) => {
 	if (epNumber == "home") {
 		main.className = ""
 		episode.className = "inactive"
+		document.body.className = "home"
 		return
 	} 
 	
@@ -34,7 +35,8 @@ const loadPage = async (epNumber) => {
 
 	episodeHtml = ""
 	let pageNumber = /^\d+$/.test(getUrlParam("page")) ? getUrlParam("page") : 1
-	let pageList = /^\d+$/.test(epNumber) ? scriptJSON.episodes[epNumber - 1] : scriptJSON[epNumber]
+	let pageList = scriptJSON[epNumber]
+	document.body.className = epNumber
 
 	if (!pageList[pageNumber - 1]) {
 		
