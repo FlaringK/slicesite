@@ -185,4 +185,8 @@ iframe {
     background-color: #463B47; 
     color: #E5E5E5;
   } 
+  .spoiler {
+    background-color: #eeeeee;
+    color: black;
+  }
 }
