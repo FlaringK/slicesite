@@ -67,10 +67,10 @@ document.getElementById("browser-forward").onclick = () => {
 
 let loadLink = link => {
 
-	// REMOVE THIS ON UPLOAD
-	if (window.location.href.includes("flaringk")) {
-		link = link.replace("https://flaringk.github.io", "https://flaringk.github.io/slicesite/")
-	}
+	// // REMOVE THIS ON UPLOAD
+	// if (window.location.href.includes("flaringk")) {
+	// 	link = link.replace("https://flaringk.github.io", "https://flaringk.github.io/slicesite/")
+	// }
 
 	history.pushState(null, '', link)
 	loadPage()
