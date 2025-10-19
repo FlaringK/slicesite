@@ -1,19 +1,139 @@
 body {
+  --dirk: #f2a400;
 	background-color: black;
-	color: white;
+	color: var(--dirk);
+
+  background-image: url(./assets/CompBackground2.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 #main {
   font-family: Verdana,Arial,Helvetica,sans-serif;
   font-size: x-large;
   font-weight: 400;
-  margin: 0 25px 30px;
+  padding: 4vh;
+}
 
+/* BROWSER */
+
+#browser {
+  max-width: 1200px;
+  height: 90vh;
+  margin: 0 auto;
+  border: solid currentColor;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto) 1fr; 
+
+  background-color: black;
+}
+
+#header {
+  grid-area: 1 / 1 / 2 / 2;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  min-width: 900px;
-  margin: auto;
-  min-height: 80vh;
+  justify-content: space-between;
+  padding: .25em 1em;
+
+  #urlbar {
+    width: 50%;
+    border: solid currentColor;
+    border-radius: 10px;
+    text-align: center;
+  }
+}
+
+#tabs {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  padding: 0 .25em;
+  gap: .25em;
+
+  div {
+  }
+
+  .active {
+    background-color: var(--dirk);
+    color: black;
+  }
+
+  a {
+    display: block;
+    border: solid currentColor;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    max-width: 200px;
+    width: 20%;
+    padding: .1em .25em;
+    color: currentColor;
+  }
+}
+
+#content {
+  grid-area: 3 / 1 / 4 / 2;
+  border-radius: 0 0 10px 10px;
+  border-top: solid currentColor;
+  overflow: scroll;
+  position: relative;
+
+  iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* PAGE UNIFROM */
+
+a {
+  color: currentColor;
+}
+
+.flex {
+  display: flex;
+  gap: 1em;
+  padding: .5em 1em;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.grow25 {
+  width: 25%;
+}
+
+.top {
+  align-items: flex-start;
+}
+
+.section {
+  border: solid currentColor;
+  border-radius: 10px;
+  padding: .25em .5em;
+}
+
+.link-list {
+  width: 20%;
+
+  div {
+    margin: .5em 0;
+  }
+
+  div::before {
+    content: "> "
+  }
+}
+
+.cursor {
+  cursor: pointer;
 }

@@ -2,17 +2,53 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Hello.</title>
+
+	<meta content="Homeslice: Bonus Episodes" property="og:title" />
+	<meta content="What am I, A Discord Embed?" property="og:description" />
+	<meta content="#f2a400" data-react-helmet="true" name="theme-color" />
+
+	<link rel="shortcut icon" href="./bonus/navbar-icon--dirk.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	
 	<div id="main">
-		<div>
-			<a href="slicesite/deltritus/">Go to Dirk</a> <br>
-			<a href="slicesite/bonus/">Go to Bonus</a>
+
+		<div id="browser">
+			<div id="header">
+				<div>
+					<span class="cursor" id="browser-back">&lt;</span>
+					<span class="cursor" id="browser-forward">&gt;</span>
+				</div>
+
+				<div id="urlbar">
+					Dirk.com
+				</div>
+
+				<div>
+					<span id="browser-min">–</span>
+					<span id="browser-wide">☐</span>
+					<span id="browser-close">✕</span>
+				</div>
+
+			</div>
+			<div id="tabs">
+				<a class="pageLink" id="tabhome" href="/">Dirk</a>
+				<a class="pageLink" id="tabbonus" href="?page=bonus">MSPA</a>
+				<a class="pageLink" id="tabsecret" href="?page=secret" style="display: none;">MSPA</a>
+			</div>
+
+			<div id="content">
+
+
+			</div>
 		</div>
+
 	</div>
+
+	<div id="loading"></div>
 
 	<script src="./dirkmain.js"></script>
 </body>
