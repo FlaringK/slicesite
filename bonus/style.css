@@ -37,7 +37,7 @@ body {
 
 .pageFrame {
   background: #c6c6c6;
-  width: 950px;
+  max-width: 950px;
   padding-top: 7px;
   padding-bottom: 23px;
   margin: 0 auto;

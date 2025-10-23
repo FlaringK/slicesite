@@ -1,7 +1,7 @@
 const getUrlPage = () => {
 	const urlParams = new URLSearchParams(window.location.search);
 	const p = urlParams.get("page")
-	return p ? p : "home"
+	return p ? p : "intro"
 }
 
 let pageHistory = [window.location.toString()]
@@ -10,6 +10,7 @@ let rss = ""
 
 const loadPage = async () => {
 	let pageName = getUrlPage()
+	document.body.className = pageName
 	document.getElementById("loading").className = ""
 	pageHtml = await fetch(`./pages/${pageName}.html`).then(e => e.text())
 	document.getElementById("loading").className = "hidden"
@@ -23,6 +24,7 @@ const loadPage = async () => {
 	// Set tab active
 	document.querySelectorAll("#tabs > *").forEach(e => { e.className = "" })
 	let isOwnTab = document.getElementById("tab" + pageName)
+	console.log(isOwnTab)
 	if (isOwnTab) {
 		document.getElementById("tab" + pageName).className = "active"
 	} else {
@@ -37,7 +39,7 @@ const loadPage = async () => {
 	}
 
 
-	pageFunctions()
+	pageFunctions(pageName)
 }
 
 const clickLink = (event, link) => {
@@ -76,7 +78,14 @@ let loadLink = link => {
 	loadPage()
 }
 
-const pageFunctions = async () => {
+const pageFunctions = async pageName => {
+
+	// For intro
+	if (pageName == "intro") {
+		document.getElementById("intro-button-1").onclick = () => { document.getElementById("introwrapper").className = "phase2" }
+		document.getElementById("intro-button-2").onclick = () => { document.getElementById("introwrapper").className = "phase3" }
+		document.getElementById("intro-button-3").onclick = () => { document.getElementById("introwrapper").className = "phase4" }
+	}
 
 	// For homepage
 	if (document.getElementById("updates")) {

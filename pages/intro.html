@@ -1,0 +1,101 @@
+<div id="introwrapper" class="phase1">
+	<div id="intro1" class="intro-panel">
+		<img src="./assets/IMG_3030.png" alt="">
+		<div id="intro-button-1">button</div>
+	</div>
+
+	<div id="intro2" class="intro-panel">
+		<img src="./assets/IMG_3031.png" alt="">
+		<div id="intro-button-2">button</div>
+	</div>
+
+	<div id="intro3" class="intro-panel">
+		<a href="?page=home" class="pageLink">Stratup</a>
+	</div>
+</div>
+
+<style>
+
+	#introwrapper {
+		position: fixed;
+		inset: 0;
+		overflow: hidden;
+		background-color: black;
+	}
+
+	.intro-panel {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		aspect-ratio: 605 / 417;
+
+		transition: opacity 5s, scale 2.5s;
+		transform-origin: top left;
+
+		@starting-style {
+			opacity: 0;
+		}
+
+		div {
+			position: absolute;
+			cursor: pointer;
+		}
+
+		img {
+			max-width: 100vw;
+			max-height: 100vh;
+		}
+	}
+
+	#intro1 div {
+		top: 40%;
+		left: 15%;
+
+		height: 40%;
+		width: 25%;
+	}
+
+	#intro2 div {
+		top: 79%;
+		right: 17%;
+
+		height: 6%;
+		width: 6%;
+	}
+
+	.phase1 {
+		#intro2, #intro3 {
+			z-index: -10;
+			pointer-events: none;
+			opacity: 0;
+		}
+	}
+
+	.phase2 {
+		#intro1, #intro3 {
+			z-index: -10;
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	.phase3 {
+		#intro1, #intro2 {
+			z-index: -10;
+			opacity: 0;
+			pointer-events: none;
+		}
+
+		#intro2 {
+			scale: 5;
+		}
+
+		#intro3 {
+			color: var(--dirk)
+		}
+
+	}
+</style>
