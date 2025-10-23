@@ -24,7 +24,6 @@ const loadPage = async () => {
 	// Set tab active
 	document.querySelectorAll("#tabs > *").forEach(e => { e.className = "" })
 	let isOwnTab = document.getElementById("tab" + pageName)
-	console.log(isOwnTab)
 	if (isOwnTab) {
 		document.getElementById("tab" + pageName).className = "active"
 	} else {
@@ -84,7 +83,7 @@ const pageFunctions = async pageName => {
 	if (pageName == "intro") {
 		document.getElementById("intro-button-1").onclick = () => { document.getElementById("introwrapper").className = "phase2" }
 		document.getElementById("intro-button-2").onclick = () => { document.getElementById("introwrapper").className = "phase3" }
-		document.getElementById("intro-button-3").onclick = () => { document.getElementById("introwrapper").className = "phase4" }
+		// document.getElementById("intro-button-3").onclick = () => { document.getElementById("introwrapper").className = "phase4" }
 	}
 
 	// For homepage

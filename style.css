@@ -72,9 +72,12 @@ body {
   }
 
   .active {
-    background-color: var(--dirk);
-    color: black;
-    transition: color 2s, background-color 2s;
+    background-color: currentColor;
+    text-decoration: none;
+
+    span {
+      color: black;
+    }
   }
 
   a {
