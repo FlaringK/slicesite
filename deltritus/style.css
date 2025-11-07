@@ -1,3 +1,7 @@
+:root {
+	--dirk: #fd7507;
+}
+
 body {
 	margin: 0 !important;
 	background-color: black;
@@ -5,7 +9,7 @@ body {
 	text-align: center;
   	font-size: 20px;
 	margin: 10vh 0;
-	color: #f2a400;
+	color: var(--dirk);
 }
 
 #screenCenter {
@@ -24,12 +28,12 @@ body {
 	margin-top: 20px;
 	font-family: 'Courier New', Courier, monospace;
 	cursor: pointer;
-	color: #f2a400;
+	color: var(--dirk);
 	text-decoration: none;
 }
 
 .dirk {
-	color: #f2a400;
+	color: var(--dirk);
 	font-family: 'Times New Roman', Times, serif;
 	max-width: 630px;
 	margin: 20px auto;
@@ -153,7 +157,7 @@ img.teaser {
 }
 
 #nav a, #qna a {
-	color: #f2a400;
+	color: var(--dirk);
 	text-decoration: none;
 	font-weight: bold;
 
